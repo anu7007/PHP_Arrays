@@ -101,8 +101,30 @@ $products = array(
                          
     }}}
         $table=$table."</table>";
-        echo $table;                
-       ?>   
+        echo $table;   
+        echo "<hr>";  
+        //////////////////////////////////////////////////////////////////////////
 
-</body>
-</html>
+
+         $table2="<table>
+         <tr><th>Category</th><th>Sub-Category</th><th>ID</th><th>Name</th><th>Brand</th></tr>";
+        foreach($products as $category=>$subcategory){
+             foreach($subcategory as $subcategory=>$product){
+                 foreach($product as $items=>$item){
+                        if($subcategory==="Mobile"){
+                        $table2=$table2 . "<tr><td>" .$category. "</td>";
+                        $table2=$table2 . "<td>" .$subcategory. "</td>";
+                        $table2 = $table2 . "<td>" . $item ["id"] . "</td><td>" . $item["name"]. "</td><td>" .$item["brand"] . "</td>";
+
+                        $table2 = $table2 . "</tr>";
+                         
+    }}}}
+        $table2=$table2."</table>";
+        echo $table2;   
+        echo "<hr>"; 
+        
+    //////////////////////////////////////////////////////////////////////////////////
+     ?> 
+
+    </body>
+    </html>
