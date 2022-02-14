@@ -73,4 +73,36 @@ $products = array(
     )
   )
       );
+    //   echo '<pre>';
+    //   print_r($products);
+    //   echo '</pre>';
       ?>
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>PHP Arrays</title>
+      </head>
+      <body>
+         <?php
+         $table="";
+         $table="<table>
+         <tr><th>Category</th><th>Sub-Category</th><th>ID</th><th>Name</th><th>Brand</th></tr>";
+        foreach($products as $category=>$subcategory){
+             foreach($subcategory as $subcategory=>$product){
+                 foreach($product as $items=>$item){
+                        $table=$table . "<tr><td>" .$category. "</td>";
+                        $table=$table . "<td>" .$subcategory. "</td>";
+                        $table = $table . "<td>" . $item ["id"] . "</td><td>" . $item["name"]. "</td><td>" .$item["brand"] . "</td>";
+
+                        $table = $table . "</tr>";
+                         
+    }}}
+        $table=$table."</table>";
+        echo $table;                
+       ?>   
+
+</body>
+</html>
