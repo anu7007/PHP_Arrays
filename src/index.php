@@ -84,9 +84,11 @@ $products = array(
           <meta http-equiv="X-UA-Compatible" content="IE=edge">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>PHP Arrays</title>
+          <link href="style.css" rel="stylesheet">
       </head>
       <body>
          <?php
+         echo "<center><h3>Listing Array in tabular format</h3></center>";
          $table="";
          $table="<table>
          <tr><th>Category</th><th>Sub-Category</th><th>ID</th><th>Name</th><th>Brand</th></tr>";
@@ -104,7 +106,7 @@ $products = array(
         echo $table;   
         echo "<hr>";  
         //////////////////////////////////////////////////////////////////////////
-
+        echo "<center><h3>subcategory = Mobile</h3></center>";
 
          $table2="<table>
          <tr><th>Category</th><th>Sub-Category</th><th>ID</th><th>Name</th><th>Brand</th></tr>";
@@ -124,6 +126,25 @@ $products = array(
         echo "<hr>"; 
         
     //////////////////////////////////////////////////////////////////////////////////
+    echo "<center><h3>Brand = Samsung</h3></center>";
+    foreach($products as $category=>$subcategory){
+        foreach($subcategory as $subcategory=>$product){
+            foreach($product as $items=>$item){
+                if($item["brand"]=="Samsung"){
+                    echo "Product ID:".$item["id"]."<br>".
+                    "Product Name:".$item["name"]."<br>".
+                    "Subcategory:".$subcategory."<br>".
+                    "Category:".$category."<br>";
+                    echo "<br>";
+                   
+                }
+            }
+        }
+    } echo "<hr>";
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
      ?> 
 
     </body>
