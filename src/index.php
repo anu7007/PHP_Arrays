@@ -1,5 +1,5 @@
 <?php
-$products = array(
+$products =  array(
   "Electronics" => array(
     "Television" => array(
       array(
@@ -89,7 +89,9 @@ $products = array(
       <body>
          <?php
          echo "<center><h3>Listing Array in tabular format</h3></center>";
-         $table="";
+        //  function display($products){
+         
+         $table=" ";
          $table="<table>
          <tr><th>Category</th><th>Sub-Category</th><th>ID</th><th>Name</th><th>Brand</th></tr>";
         foreach($products as $category=>$subcategory){
@@ -100,11 +102,13 @@ $products = array(
                         $table = $table . "<td>" . $item ["id"] . "</td><td>" . $item["name"]. "</td><td>" .$item["brand"] . "</td>";
 
                         $table = $table . "</tr>";
+                      }
                          
-    }}}
+    }}
         $table=$table."</table>";
         echo $table;   
-        echo "<hr>";  
+        echo "<hr>"; 
+        // display($products); 
         //////////////////////////////////////////////////////////////////////////
         echo "<center><h3>subcategory = Mobile</h3></center>";
 
@@ -142,8 +146,45 @@ $products = array(
         }
     } echo "<hr>";
 /////////////////////////////////////////////////////////////////////////////////////////////////
+echo "<center><h3> Delete product with id = PR003</h3></center>";    
+// echo $tableHead="<tr><th>Category</th><th>Sub-Category</th><th>ID</th><th>Name</th><th>Brand</th></tr>";
+$table3=" ";
+         $table3="<table>
+         <tr><th>Category</th><th>Sub-Category</th><th>ID</th><th>Name</th><th>Brand</th></tr>";
+        foreach($products as $category=>$subcategory){
+             foreach($subcategory as $subcategory=>$product){
+                 foreach($product as $items=>$item){
+                   if($item["id"]=="PR003"){
+                     unset($item["id"]);
+                     continue;
+                   }
+                        $table3=$table3 . "<tr><td>" .$category. "</td>";
+                        $table3=$table3 . "<td>" .$subcategory. "</td>";
+                        $table3 = $table3 . "<td>" . $item ["id"] . "</td><td>" . $item["name"]. "</td><td>" .$item["brand"] . "</td>";
 
+                        $table3 = $table3 . "</tr>";
+                      }
+                         
+    }}
+        $table3=$table3."</table>";
+        echo $table3;   
+        echo "<hr>"; 
+            
+            // display($products);
+            //////////////////////////////////////////////////////////////////
 
+            echo "<center><h3>Update product name = 'BIG-555' with id = PR002</h3></center>";    
+      foreach($products as $category=>$subcategory){
+            foreach($subcategory as $subcategory=>$product){
+                foreach($product as $items=>$item){
+                    if($item['id']=="PR002"){
+                      echo $item['id'];
+                      $oldname=$item['name'];
+                      $newname="BIG-555";
+                      array_splice($item,1);
+                    }
+                }}}
+                // display($products);
 
      ?> 
 
