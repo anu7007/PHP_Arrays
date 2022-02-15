@@ -174,17 +174,27 @@ $table3=" ";
             //////////////////////////////////////////////////////////////////
 
             echo "<center><h3>Update product name = 'BIG-555' with id = PR002</h3></center>";    
-      foreach($products as $category=>$subcategory){
-            foreach($subcategory as $subcategory=>$product){
-                foreach($product as $items=>$item){
-                    if($item['id']=="PR002"){
-                      echo $item['id'];
-                      $oldname=$item['name'];
-                      $newname="BIG-555";
-                      array_splice($item,1);
-                    }
-                }}}
-                // display($products);
+            $table4=" ";
+            $table4="<table>
+            <tr><th>Category</th><th>Sub-Category</th><th>ID</th><th>Name</th><th>Brand</th></tr>";
+           foreach($products as $category=>$subcategory){
+                foreach($subcategory as $subcategory=>$product){
+                    foreach($product as $items=>$item){
+                      if($item["id"]=="PR002"){
+                        $item["name"]="BIG-555";
+                        
+                      }
+                           $table4=$table4 . "<tr><td>" .$category. "</td>";
+                           $table4=$table4 . "<td>" .$subcategory. "</td>";
+                           $table4 = $table4 . "<td>" . $item ["id"] . "</td><td>" . $item["name"]. "</td><td>" .$item["brand"] . "</td>";
+   
+                           $table4 = $table4 . "</tr>";
+                         }
+                            
+       }}
+           $table4=$table4."</table>";
+           echo $table4;   
+           echo "<hr>"; 
 
      ?> 
 
